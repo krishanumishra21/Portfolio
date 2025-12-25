@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  background: black;
+  color: white;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+/* HERO */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.console {
+  color: #00ffff;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 15px 0;
+}
+
+h1 span {
+  background: linear-gradient(90deg, cyan, blue);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.code span {
+  color: cyan;
+}
+
+.icons {
+  margin-top: 20px;
+}
+
+.icons a {
+  margin: 0 10px;
+  color: cyan;
+}
+
+/* SECTIONS */
+section:not(#hero) {
+  padding: 100px 60px;
+}
+
+h2 {
+  color: cyan;
+  margin-bottom: 20px;
+}
+
+.tags span {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 12px;
+  border: 1px solid cyan;
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: rgb(69, 170, 150);
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: white;
+}
