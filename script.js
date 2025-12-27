@@ -1,17 +1,25 @@
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
+const hero = document.getElementById("hero");
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+function resizeCanvas() {
+  canvas.width = hero.clientWidth;
+  canvas.height = hero.clientHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const isMobile = window.innerWidth < 768;
+const particleCount = isMobile ? 40 : 80;
 
 let particles = [];
 
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < particleCount; i++) {
   particles.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    vx: (Math.random() - 0.5) * 0.5,
-    vy: (Math.random() - 0.5) * 0.5
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4
   });
 }
 
@@ -44,8 +52,3 @@ function animate() {
 }
 
 animate();
-
-window.addEventListener("resize", () => {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-});
