@@ -19,7 +19,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
   z-index: 10;
 }
@@ -39,8 +39,7 @@ nav a {
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color: rgb(69, 170, 150);
-  letter-spacing: 2px;
+  color: rgb(69,170,150);
 }
 
 .logo span {
@@ -54,25 +53,20 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 canvas {
   position: absolute;
   inset: 0;
-  z-index: 0;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
   text-align: center;
-  padding: 0 20px;
+  z-index: 1;
 }
 
-.console {
-  color: cyan;
-}
+.console { color: cyan; }
 
 h1 {
   font-size: 4rem;
@@ -85,16 +79,10 @@ h1 span {
   color: transparent;
 }
 
-.code span {
-  color: cyan;
-}
-
-.icons {
-  margin-top: 20px;
-}
+.code span { color: cyan; }
 
 .icons a {
-  margin: 0 10px;
+  margin: 10px;
   color: cyan;
   text-decoration: none;
 }
@@ -111,10 +99,10 @@ h2 {
 
 /* TAGS */
 .tags span {
-  display: inline-block;
   margin: 6px;
   padding: 6px 14px;
   border: 1px solid cyan;
+  display: inline-block;
 }
 
 /* PROJECT CARD */
@@ -129,9 +117,23 @@ h2 {
   text-decoration: none;
 }
 
-/* MOBILE FIX */
-@media (max-width: 768px) {
+/* GITHUB */
+#github {
+  text-align: center;
+}
 
+.github-text {
+  margin-bottom: 20px;
+}
+
+.github-graph img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
   nav {
     padding: 12px 20px;
   }
@@ -147,10 +149,5 @@ h2 {
 
   section:not(#hero) {
     padding: 70px 20px;
-  }
-
-  .icons a {
-    display: inline-block;
-    margin: 8px;
   }
 }
