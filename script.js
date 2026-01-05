@@ -9,9 +9,7 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-const isMobile = window.innerWidth < 768;
-const particleCount = isMobile ? 40 : 80;
-
+const particleCount = window.innerWidth < 768 ? 40 : 80;
 let particles = [];
 
 for (let i = 0; i < particleCount; i++) {
