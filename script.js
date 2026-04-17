@@ -1,38 +1,38 @@
-// Skills
-const skills = ['HTML','CSS','JavaScript','Python','C','C++','React','Node.js','MongoDB','Express.js','Postman API'];
-const sg = document.getElementById('skills-grid');
-skills.forEach(s => {
-  const d = document.createElement('div');
-  d.className = 'skill-tag';
-  d.textContent = s;
-  sg.appendChild(d);
-});
-
-// Projects
+// Projects data
 const projects = [
   {
+    num: '01',
     title: 'Emergency QR Medical Profile',
-    desc: 'QR-based system storing essential medical information for emergency situations. Fast, reliable, and life-saving.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    desc: 'QR-based system that stores and instantly surfaces critical medical information during emergencies — blood type, allergies, medications — fast enough to save lives.',
+    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
     url: 'https://github.com/krishanumishra21/emergency-medical-qr'
   },
   {
+    num: '02',
     title: 'Aarogya AI',
-    desc: 'AI-powered digital healthcare platform connecting patients, doctors, and hospitals into one unified system for smarter, accessible care.',
-    tags: ['MERN', 'AI', 'Healthcare'],
-    url: 'https://github.com/krishanumishra21/AAROGYA-AI'
+    desc: 'Full-stack AI healthcare platform unifying patients, doctors, and hospitals. Featured in a published research paper for its system design and accessibility-first approach.',
+    tags: ['MERN Stack', 'AI Integration', 'Healthcare'],
+    url: 'https://github.com/krishanumishra21/AAROGYA-AI',
+    badge: 'Published Research'
   },
   {
+    num: '03',
     title: 'Antarman AI',
-    desc: 'अंतरमन simulates dynamic AI personalities with a trait-based prompt engine. Users create personas with confidence, empathy, aggression, and humor that evolve over time.',
-    tags: ['MERN', 'AI', 'Personality Engine'],
+    desc: 'अंतरमन — AI personality engine that simulates dynamic personas with tunable traits: confidence, empathy, aggression, humor. Characters evolve through conversation over time.',
+    tags: ['MERN Stack', 'Prompt Engineering', 'AI'],
     url: 'https://github.com/krishanumishra21/Antarman-ai'
   }
 ];
+
 const pg = document.getElementById('projects-grid');
 projects.forEach(p => {
+  const badgeHtml = p.badge
+    ? `<span style="display:inline-block;font-family:var(--mono);font-size:.65rem;color:var(--c);border:1px solid rgba(0,229,200,.3);padding:2px 8px;margin-bottom:10px;background:rgba(0,229,200,.06);letter-spacing:.06em">${p.badge}</span><br>`
+    : '';
   pg.innerHTML += `
     <div class="project-card">
+      ${badgeHtml}
+      <div class="project-num">PROJECT ${p.num}</div>
       <h3>${p.title}</h3>
       <div class="tag-row">${p.tags.map(t => `<span class="mini-tag">${t}</span>`).join('')}</div>
       <p>${p.desc}</p>
@@ -40,7 +40,16 @@ projects.forEach(p => {
     </div>`;
 });
 
-// Canvas particle animation
+// Footer year
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const navUl = document.querySelector('nav ul');
+hamburger.addEventListener('click', () => navUl.classList.toggle('open'));
+document.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => navUl.classList.remove('open')));
+
+// Canvas particles
 const canvas = document.getElementById('bg');
 const ctx = canvas.getContext('2d');
 const hero = document.getElementById('hero');
@@ -52,17 +61,17 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 
-const COUNT = window.innerWidth < 768 ? 55 : 100;
-let particles = Array.from({ length: COUNT }, () => ({
+const COUNT = window.innerWidth < 768 ? 50 : 90;
+const particles = Array.from({ length: COUNT }, () => ({
   x: Math.random() * canvas.width,
   y: Math.random() * canvas.height,
-  vx: (Math.random() - .5) * .45,
-  vy: (Math.random() - .5) * .45,
-  size: Math.random() * 1.5 + .8,
+  vx: (Math.random() - .5) * .4,
+  vy: (Math.random() - .5) * .4,
+  size: Math.random() * 1.4 + .6,
   pulse: Math.random() * Math.PI * 2
 }));
 
-let mouse = { x: -9999, y: -9999 };
+const mouse = { x: -9999, y: -9999 };
 hero.addEventListener('mousemove', e => {
   const r = canvas.getBoundingClientRect();
   mouse.x = e.clientX - r.left;
@@ -76,38 +85,33 @@ function animate() {
   frame++;
 
   particles.forEach((p, i) => {
-    p.pulse += .025;
-
-    // Mouse repel
+    p.pulse += .022;
     const dx = p.x - mouse.x, dy = p.y - mouse.y;
     const dist = Math.hypot(dx, dy);
-    if (dist < 100) {
-      const force = (100 - dist) / 100 * .6;
+    if (dist < 110) {
+      const force = (110 - dist) / 110 * .55;
       p.vx += dx / dist * force;
       p.vy += dy / dist * force;
     }
-
-    p.vx *= .995;
-    p.vy *= .995;
+    p.vx *= .993;
+    p.vy *= .993;
     p.x += p.vx;
     p.y += p.vy;
     if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
     if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-    const alpha = .4 + .3 * Math.sin(p.pulse);
-    ctx.fillStyle = `rgba(0,255,255,${alpha})`;
+    const alpha = .35 + .25 * Math.sin(p.pulse);
+    ctx.fillStyle = `rgba(0,229,200,${alpha})`;
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
     ctx.fill();
 
-    // Connect nearby particles
     for (let j = i + 1; j < particles.length; j++) {
       const q = particles[j];
       const d = Math.hypot(p.x - q.x, p.y - q.y);
-      if (d < 130) {
-        const a = (1 - d / 130) * .18;
-        ctx.strokeStyle = `rgba(0,255,255,${a})`;
-        ctx.lineWidth = .6;
+      if (d < 120) {
+        ctx.strokeStyle = `rgba(0,229,200,${(1 - d / 120) * .15})`;
+        ctx.lineWidth = .5;
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(q.x, q.y);
@@ -116,43 +120,14 @@ function animate() {
     }
   });
 
-  // Scanline sweep
-  if (frame % 2 === 0) {
-    const scanY = ((frame * .4) % (canvas.height + 40)) - 20;
-    const grad = ctx.createLinearGradient(0, scanY - 30, 0, scanY + 30);
-    grad.addColorStop(0, 'transparent');
-    grad.addColorStop(.5, 'rgba(0,255,255,0.03)');
-    grad.addColorStop(1, 'transparent');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, scanY - 30, canvas.width, 60);
-  }
-
   requestAnimationFrame(animate);
 }
 animate();
 
-// Typing animation
-const phrases = ['console.log("Hello World!");', 'npm start', 'git commit -m "init"'];
-let pi = 0, ci = 0, deleting = false;
-const typed = document.getElementById('typed-text');
-
-function typeLoop() {
-  const phrase = phrases[pi];
-  if (!deleting) {
-    typed.textContent = phrase.slice(0, ci++);
-    if (ci > phrase.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
-  } else {
-    typed.textContent = phrase.slice(0, ci--);
-    if (ci < 0) { deleting = false; pi = (pi + 1) % phrases.length; }
-  }
-  setTimeout(typeLoop, deleting ? 40 : 70);
-}
-typeLoop();
-
 // Scroll reveal
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: .12 });
+}, { threshold: .1 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
 // Smooth scroll
@@ -163,3 +138,36 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) t.scrollIntoView({ behavior: 'smooth' });
   });
 });
+
+// Counter animation
+const counters = document.querySelectorAll('.stat-num[data-target]');
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.getAttribute('data-target');
+    let current = 0;
+    const step = Math.ceil(target / 30);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current;
+      if (current >= target) clearInterval(timer);
+    }, 40);
+    cObs.unobserve(el);
+  });
+}, { threshold: .5 });
+counters.forEach(c => cObs.observe(c));
+
+// Active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + e.target.id ? 'var(--c)' : '';
+      });
+    }
+  });
+}, { threshold: .4 });
+sections.forEach(s => navObs.observe(s));
