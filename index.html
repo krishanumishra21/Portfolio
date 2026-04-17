@@ -3,94 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krishanu | Portfolio</title>
+  <title>Krishanu Mishra | Software Engineer</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav>
-  <div class="logo">&lt;Krishanu<span>/</span>&gt;</div>
+  <div class="logo">km<span class="logo-dot">.</span></div>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <section id="hero">
   <canvas id="bg"></canvas>
   <div class="hero-content">
-    <p class="console">&gt; <span id="typed-text"></span><span class="cursor"></span></p>
-    <h1>I'm <span>Krishanu</span></h1>
-    <div class="code-lines">
-      <p class="code"><span class="kw">const</span> role = <span class="str">"Software Engineer"</span>;</p>
-      <p class="code"><span class="kw">const</span> year = <span class="num">2</span>;</p>
-      <p class="code"><span class="kw">const</span> passion = <span class="str">"Building the Future"</span>;</p>
+    <div class="hero-tag">&gt; Available for Internship · 2025</div>
+    <h1>Krishanu<br><span class="h1-accent">Mishra</span></h1>
+    <p class="hero-sub">Software Engineer · Full-Stack Developer · AI Builder</p>
+    <div class="code-block">
+      <span class="cb-ln">1</span><span class="kw">const</span> role = <span class="str">"Software Engineer"</span>;<br>
+      <span class="cb-ln">2</span><span class="kw">const</span> year = <span class="num">2</span>;  <span class="comment">// CS undergrad</span><br>
+      <span class="cb-ln">3</span><span class="kw">const</span> mission = <span class="str">"Build things that matter"</span>;
     </div>
-    <div class="icons">
-      <a href="https://github.com/krishanumishra21" target="_blank" class="icon-btn">GitHub</a>
-      <a href="https://www.linkedin.com/in/krishanu-mishra-aa531b276/" target="_blank" class="icon-btn">LinkedIn</a>
-      <a href="mailto:mishrakrishanu57@gmail.com" class="icon-btn">Email</a>
+    <div class="hero-actions">
+      <a href="mailto:mishrakrishanu57@gmail.com" class="btn-primary">Get In Touch</a>
+      <a href="https://github.com/krishanumishra21" target="_blank" class="btn-ghost">GitHub ↗</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hb">Tech Head @ DevHive</span>
+      <span class="hb">Core @ GDGC Chandigarh</span>
+      <span class="hb">Published Researcher</span>
     </div>
   </div>
-  <div class="scroll-down">
-    <span>SCROLL</span>
-    <div class="chevron"></div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="fade-in">
-  <h2 class="section-title">&lt;About /&gt;</h2>
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+  </div>
   <div class="about-grid">
-    <div>
-      <p>I'm a second-year Computer Science student passionate about building scalable and user-friendly applications. I have hands-on experience with web development and enjoy working across the stack to turn ideas into functional products.</p>
-      <p>Currently focused on improving my development skills, exploring new technologies, and building projects that create real-world impact.</p>
-      <div style="margin-top:20px">
-        <span class="about-badge">Tech Head @ DevHive</span>
-        <span class="about-badge">Core Member @ GDGC Chandigarh</span>
-      </div>
+    <div class="about-text">
+      <p>I'm a <strong>second-year Computer Science student</strong> who builds full-stack products with real-world impact — from AI healthcare platforms to QR-based emergency systems.</p>
+      <p>Beyond coursework, I automate my own developer habits: I built a <strong>Telegram bot</strong> that nudges me when I skip coding and tracks my daily streak, and a <strong>Chrome extension</strong> that auto-syncs submitted code from competitive programming platforms directly to my portfolio.</p>
+      <p>I thrive at the intersection of <strong>product thinking and engineering execution</strong> — I don't just write code, I ship things people use.</p>
     </div>
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">2nd</div><div class="stat-label">YEAR CS</div></div>
-      <div class="stat-card"><div class="stat-num">3+</div><div class="stat-label">PROJECTS</div></div>
-      <div class="stat-card"><div class="stat-num">11</div><div class="stat-label">TECHNOLOGIES</div></div>
-      <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">COMMUNITIES</div></div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-label">Projects Shipped</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="11">0</div>
+        <div class="stat-label">Technologies</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Research Paper</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Communities</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills" class="fade-in">
-  <h2 class="section-title">&lt;Skills /&gt;</h2>
-  <div class="skills-grid" id="skills-grid"></div>
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-categories">
+    <div class="skill-cat">
+      <div class="skill-cat-label">Frontend</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Backend</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express.js</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">Postman API</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C++</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-label">Tools &amp; More</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Telegram Bot API</span>
+        <span class="skill-tag">Chrome Extensions</span>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="fade-in">
-  <h2 class="section-title">&lt;Projects /&gt;</h2>
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Projects</h2>
+  </div>
   <div class="projects-grid" id="projects-grid"></div>
+
+  <!-- SIDE PROJECTS -->
+  <h3 class="sub-section-title">Side Builds</h3>
+  <div class="side-projects-grid">
+    <div class="side-card">
+      <div class="side-card-icon">🤖</div>
+      <div>
+        <div class="side-card-title">Coding Streak Telegram Bot</div>
+        <p class="side-card-desc">Personal bot that monitors my daily coding activity, sends reminders when I skip, and maintains a visual streak log — keeping me accountable.</p>
+        <div class="mini-tags"><span class="mini-tag">Python</span><span class="mini-tag">Telegram Bot API</span><span class="mini-tag">Automation</span></div>
+      </div>
+    </div>
+    <div class="side-card">
+      <div class="side-card-icon">🧩</div>
+      <div>
+        <div class="side-card-title">Code Sync Chrome Extension</div>
+        <p class="side-card-desc">Browser extension that captures submitted code from competitive programming platforms and auto-syncs it to my portfolio — zero manual effort.</p>
+        <div class="mini-tags"><span class="mini-tag">JavaScript</span><span class="mini-tag">Chrome API</span><span class="mini-tag">Productivity</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="github" class="fade-in">
-  <h2 class="section-title" style="justify-content:center">&lt;GitHub Contributions /&gt;</h2>
-  <p class="github-text">Consistent hands-on development through real projects and open source.</p>
-  <div style="text-align:center">
-    <a href="https://github.com/krishanumishra21" target="_blank">
-      <img src="https://ghchart.rshah.org/00ffff/krishanumishra21" alt="GitHub Contributions" class="github-graph">
+<!-- RESEARCH -->
+<section id="research" class="fade-in">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Research</h2>
+  </div>
+  <div class="research-card">
+    <div class="research-badge">Published · 2025</div>
+    <h3 class="research-title">Aarogya AI — AI-Powered Digital Healthcare Platform</h3>
+    <p class="research-desc">Research paper on an intelligent healthcare system connecting patients, doctors, and hospitals into one unified platform. Covers architecture design, AI integration for diagnostics, and accessibility-first approach for rural healthcare delivery.</p>
+    <div class="research-meta">
+      <span class="research-tag">Healthcare AI</span>
+      <span class="research-tag">MERN Stack</span>
+      <span class="research-tag">System Design</span>
+    </div>
+    <a href="https://lnkd.in/gnCEMVvr" target="_blank" class="research-doi">
+      <span class="doi-label">DOI</span>
+      <span>View Published Paper ↗</span>
     </a>
-    <p class="gh-caption">Early-stage consistency focused on building real projects, refactoring code, and daily learning.</p>
   </div>
 </section>
 
+<!-- GITHUB -->
+<section id="github" class="fade-in">
+  <div class="section-header" style="justify-content:center">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Contributions</h2>
+  </div>
+  <div class="github-wrap">
+    <p class="github-sub">Consistent hands-on development through real projects and daily learning.</p>
+    <a href="https://github.com/krishanumishra21" target="_blank">
+      <img src="https://ghchart.rshah.org/00e5c8/krishanumishra21" alt="GitHub Contributions" class="github-graph">
+    </a>
+    <p class="gh-caption">Early-stage consistency · building real products · daily commits</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="fade-in">
-  <h2 class="section-title" style="justify-content:center">&lt;Contact /&gt;</h2>
-  <p style="color:#555;font-size:.85rem;margin-bottom:4px;text-align:center">Let's build something together.</p>
-  <div class="contact-links">
-    <a href="mailto:mishrakrishanu57@gmail.com" class="contact-btn">Email Me</a>
-    <a href="tel:7488875996" class="contact-btn">Call Me</a>
+  <div class="contact-inner">
+    <p class="contact-pre">Let's work together</p>
+    <h2 class="contact-heading">Open to Internship<br>Opportunities</h2>
+    <p class="contact-sub">I'm actively looking for summer internships where I can contribute to real products and grow as an engineer.</p>
+    <div class="contact-links">
+      <a href="mailto:mishrakrishanu57@gmail.com" class="btn-primary">mishrakrishanu57@gmail.com</a>
+      <a href="https://www.linkedin.com/in/krishanu-mishra-aa531b276/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+    </div>
+    <div class="contact-alt">
+      <a href="tel:7488875996">+91 7488875996</a>
+      <a href="https://github.com/krishanumishra21" target="_blank">github.com/krishanumishra21</a>
+    </div>
   </div>
 </section>
 
-<footer class="footer">Thanks for visiting ♥</footer>
+<footer class="footer">
+  <span>Built by Krishanu Mishra</span>
+  <span class="footer-dot">·</span>
+  <span id="footer-year"></span>
+</footer>
 
 <script src="script.js"></script>
 </body>
