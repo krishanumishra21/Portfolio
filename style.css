@@ -42,10 +42,11 @@ nav {
   z-index: 999;
 }
 .logo {
+  font-family: var(--mono);
   font-weight: 700;
-  font-size: 20px;
-  color: #00e5c8;
-  letter-spacing: 1px;
+  font-size: 1.1rem;
+  color: var(--c);
+  letter-spacing: .04em;
 }
 .logo-dot { color: var(--text); }
 nav ul { display: flex; align-items: center; gap: 32px; list-style: none; }
@@ -405,10 +406,56 @@ section:not(#hero) {
   transition: border-color .3s;
 }
 .side-card:hover { border-color: rgba(0,229,200,.3); }
-.side-card-icon { font-size: 1.4rem; margin-top: 2px; }
-.side-card-title { font-size: .9rem; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+.side-card--featured {
+  grid-column: 1 / -1;
+  border-color: rgba(0,229,200,.25);
+  background: linear-gradient(135deg, var(--bg2) 0%, rgba(0,229,200,.04) 100%);
+  position: relative;
+}
+.side-card--featured::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c), var(--c2), var(--c));
+}
+.side-card-icon { font-size: 1.4rem; margin-top: 2px; flex-shrink: 0; }
+.side-card-title {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.published-pill {
+  font-family: var(--mono);
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--c);
+  padding: 2px 9px;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
 .side-card-desc { font-size: .82rem; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
 .mini-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.side-card-links { display: flex; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+.side-link {
+  font-family: var(--mono);
+  font-size: .73rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: .04em;
+  transition: color .2s;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+.side-link:hover { color: var(--c); border-color: var(--c); }
+.side-link--accent { color: var(--c); border-bottom: 1px solid rgba(0,229,200,.3); }
+.side-link--accent:hover { color: #fff; border-color: #fff; }
 
 /* ── RESEARCH ── */
 .research-card {
