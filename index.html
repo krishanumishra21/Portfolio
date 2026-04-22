@@ -6,13 +6,12 @@
   <title>Krishanu Mishra | Software Engineer</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="icon" type="image/png" href="favicon-16x16.png">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav>
-  <div class="logo">&lt;KM/&gt;</div>
+  <div class="logo">km<span class="logo-dot">.</span></div>
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -28,7 +27,7 @@
 <section id="hero">
   <canvas id="bg"></canvas>
   <div class="hero-content">
-    <div class="hero-tag">&gt; Available for Internship </div>
+    <div class="hero-tag">&gt; Available for Internship · 2025</div>
     <h1>Krishanu<br><span class="h1-accent">Mishra</span></h1>
     <p class="hero-sub">Software Engineer · Full-Stack Developer · AI Builder</p>
     <div class="code-block">
@@ -42,8 +41,9 @@
     </div>
     <div class="hero-badges">
       <span class="hb">Tech Head @ DevHive</span>
-      <span class="hb">Management Lead @ GDGC Chandigarh</span>
+      <span class="hb">Core @ GDGC Chandigarh</span>
       <span class="hb">Published Researcher</span>
+      <span class="hb">VS Code Publisher</span>
     </div>
   </div>
   <div class="scroll-hint">
@@ -61,12 +61,12 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a <strong>second-year Computer Science student</strong> who builds full-stack products with real-world impact — from AI healthcare platforms to QR-based emergency systems.</p>
-      <p>Beyond coursework, I automate my own developer habits: I built a <strong>Telegram bot</strong> that nudges me when I skip coding and tracks my daily streak, and a <strong>Chrome extension</strong> that auto-syncs submitted code from competitive programming platforms directly to my portfolio.</p>
+      <p>Beyond coursework, I automate my own developer habits: I built a <strong>Telegram bot</strong> that nudges me when I skip coding and tracks my daily streak, a <strong>Chrome extension</strong> that auto-syncs submitted code from competitive programming platforms to my portfolio, and a <strong>VS Code extension</strong> — published on the Marketplace — that analyses DSA code and surfaces Big-O complexity in real-time.</p>
       <p>I thrive at the intersection of <strong>product thinking and engineering execution</strong> — I don't just write code, I ship things people use.</p>
     </div>
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-num" data-target="4">0</div>
         <div class="stat-label">Projects Shipped</div>
       </div>
       <div class="stat-card">
@@ -124,6 +124,7 @@
         <span class="skill-tag">Git</span>
         <span class="skill-tag">Telegram Bot API</span>
         <span class="skill-tag">Chrome Extensions</span>
+        <span class="skill-tag">VS Code Extensions</span>
       </div>
     </div>
   </div>
@@ -138,7 +139,7 @@
   <div class="projects-grid" id="projects-grid"></div>
 
   <!-- SIDE PROJECTS -->
-  <h3 class="sub-section-title">Side Builds</h3>
+  <h3 class="sub-section-title">Side Builds &amp; Published Tools</h3>
   <div class="side-projects-grid">
     <div class="side-card">
       <div class="side-card-icon">🤖</div>
@@ -154,6 +155,21 @@
         <div class="side-card-title">Code Sync Chrome Extension</div>
         <p class="side-card-desc">Browser extension that captures submitted code from competitive programming platforms and auto-syncs it to my portfolio — zero manual effort.</p>
         <div class="mini-tags"><span class="mini-tag">JavaScript</span><span class="mini-tag">Chrome API</span><span class="mini-tag">Productivity</span></div>
+      </div>
+    </div>
+    <div class="side-card side-card--featured">
+      <div class="side-card-icon">⚡</div>
+      <div>
+        <div class="side-card-title">
+          DSA Helper Pro – Complexity Analyzer
+          <span class="published-pill">Published on Marketplace</span>
+        </div>
+        <p class="side-card-desc">VS Code extension that analyses DSA code in real-time and displays Big-O time &amp; space complexity — helping developers write efficient algorithms faster.</p>
+        <div class="mini-tags"><span class="mini-tag">TypeScript</span><span class="mini-tag">VS Code API</span><span class="mini-tag">DSA</span><span class="mini-tag">Developer Tools</span></div>
+        <div class="side-card-links">
+          <a href="https://github.com/krishanumishra21/DSA-HELPER" target="_blank" class="side-link">↗ GitHub</a>
+          <a href="https://marketplace.visualstudio.com/search?term=DSA+Helper+Pro&target=VSCode" target="_blank" class="side-link side-link--accent">⬡ VS Code Marketplace</a>
+        </div>
       </div>
     </div>
   </div>
