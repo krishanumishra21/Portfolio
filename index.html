@@ -3,236 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krishanu Mishra | Software Engineer</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Krishanu Mishra — Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav>
-  <div class="logo">km<span class="logo-dot">.</span></div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-bar"></div>
+    <span class="loader-text" id="loader-text">0%</span>
   </div>
+</div>
+
+<!-- NOISE OVERLAY -->
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo" data-cursor="link">km<span>.</span></a>
+  <div class="nav-links">
+    <a href="#about" class="nav-link" data-cursor="link"><span>01</span> About</a>
+    <a href="#projects" class="nav-link" data-cursor="link"><span>02</span> Projects</a>
+    <a href="#research" class="nav-link" data-cursor="link"><span>03</span> Research</a>
+    <a href="#contact" class="nav-link nav-cta" data-cursor="link">Hire Me ↗</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span>
+  </button>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" class="mm-link">About</a>
+  <a href="#projects" class="mm-link">Projects</a>
+  <a href="#research" class="mm-link">Research</a>
+  <a href="#contact" class="mm-link">Hire Me</a>
+</div>
+
+<!-- HERO -->
 <section id="hero">
-  <canvas id="bg"></canvas>
-  <div class="hero-content">
-    <div class="hero-tag">&gt; Available for Internship · 2026</div>
-    <h1>Krishanu<br><span class="h1-accent">Mishra</span></h1>
-    <p class="hero-sub">Software Engineer · Full-Stack Developer · AI Builder</p>
-    <div class="code-block">
-      <span class="cb-ln">1</span><span class="kw">const</span> role = <span class="str">"Software Engineer"</span>;<br>
-      <span class="cb-ln">2</span><span class="kw">const</span> year = <span class="num">2</span>;  <span class="comment">// CS undergrad</span><br>
-      <span class="cb-ln">3</span><span class="kw">const</span> mission = <span class="str">"Build things that matter"</span>;
+  <canvas id="hero-canvas"></canvas>
+
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-status" data-reveal>
+        <span class="status-dot"></span>
+        Available for Internship · 2025
+      </div>
+
+      <h1 class="hero-name" data-reveal>
+        <span class="name-line">Krishanu</span>
+        <span class="name-line accent-line">Mishra</span>
+      </h1>
+
+      <p class="hero-role" data-reveal>
+        Software Engineer &amp; AI Builder
+      </p>
+
+      <div class="hero-cta" data-reveal>
+        <a href="mailto:mishrakrishanu57@gmail.com" class="btn-primary" data-cursor="link">
+          <span>Get In Touch</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://github.com/krishanumishra21" target="_blank" class="btn-outline" data-cursor="link">GitHub</a>
+      </div>
+
+      <div class="hero-tags" data-reveal>
+        <span class="htag">Tech Head @ DevHive</span>
+        <span class="htag">Core @ GDGC</span>
+        <span class="htag">Published Researcher</span>
+        <span class="htag highlight-tag">VS Code Publisher</span>
+      </div>
     </div>
-    <div class="hero-actions">
-      <a href="mailto:mishrakrishanu57@gmail.com" class="btn-primary">Get In Touch</a>
-      <a href="https://github.com/krishanumishra21" target="_blank" class="btn-ghost">GitHub ↗</a>
-    </div>
-    <div class="hero-badges">
-      <span class="hb">Tech Head @ DevHive</span>
-      <span class="hb">Management Lead @ GDGC Chandigarh</span>
-      <span class="hb">Published Researcher</span>
-      <span class="hb">VS Code Publisher</span>
+
+    <div class="hero-right" data-reveal>
+      <div class="code-window">
+        <div class="cw-header">
+          <div class="cw-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="cw-title">portfolio.js</span>
+        </div>
+        <div class="cw-body">
+          <div class="cw-line"><span class="ln">1</span><span class="kw">const</span> <span class="var">engineer</span> = {</div>
+          <div class="cw-line"><span class="ln">2</span>&nbsp;&nbsp;<span class="key">name</span>: <span class="str">"Krishanu Mishra"</span>,</div>
+          <div class="cw-line"><span class="ln">3</span>&nbsp;&nbsp;<span class="key">role</span>: <span class="str">"Software Engineer"</span>,</div>
+          <div class="cw-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="key">year</span>: <span class="num">2</span>, <span class="cmt">// CS Undergrad</span></div>
+          <div class="cw-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="key">published</span>: [</div>
+          <div class="cw-line"><span class="ln">6</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Research Paper"</span>,</div>
+          <div class="cw-line"><span class="ln">7</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"VS Code Extension"</span>,</div>
+          <div class="cw-line"><span class="ln">8</span>&nbsp;&nbsp;],</div>
+          <div class="cw-line"><span class="ln">9</span>&nbsp;&nbsp;<span class="key">mission</span>: <span class="str">"Build what matters"</span></div>
+          <div class="cw-line"><span class="ln">10</span>};</div>
+          <div class="cw-line cw-cursor-line"><span class="ln">11</span><span class="typed-cursor">█</span></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
+
+  <div class="hero-scroll">
+    <div class="scroll-track">
+      <div class="scroll-thumb"></div>
+    </div>
     <span>scroll</span>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="hero-stats" data-reveal>
+    <div class="hstat">
+      <div class="hstat-num counter" data-target="4">0</div>
+      <div class="hstat-label">Projects Shipped</div>
+    </div>
+    <div class="hstat-div"></div>
+    <div class="hstat">
+      <div class="hstat-num counter" data-target="11">0</div>
+      <div class="hstat-label">Technologies</div>
+    </div>
+    <div class="hstat-div"></div>
+    <div class="hstat">
+      <div class="hstat-num">1</div>
+      <div class="hstat-label">Research Paper</div>
+    </div>
+    <div class="hstat-div"></div>
+    <div class="hstat">
+      <div class="hstat-num">2</div>
+      <div class="hstat-label">Communities</div>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="fade-in">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title">About</h2>
-  </div>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I'm a <strong>second-year Computer Science student</strong> who builds full-stack products with real-world impact — from AI healthcare platforms to QR-based emergency systems.</p>
-      <p>Beyond coursework, I automate my own developer habits: I built a <strong>Telegram bot</strong> that nudges me when I skip coding and tracks my daily streak, a <strong>Chrome extension</strong> that auto-syncs submitted code from competitive programming platforms to my portfolio, and a <strong>VS Code extension</strong> — published on the Marketplace — that analyses DSA code and surfaces Big-O complexity in real-time.</p>
-      <p>I thrive at the intersection of <strong>product thinking and engineering execution</strong> — I don't just write code, I ship things people use.</p>
+<section id="about">
+  <div class="section-label" data-reveal><span>01</span> About</div>
+  <div class="about-layout">
+    <div class="about-headline" data-reveal>
+      I build things<br>that <em>matter</em>.
     </div>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-num" data-target="4">0</div>
-        <div class="stat-label">Projects Shipped</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" data-target="11">0</div>
-        <div class="stat-label">Technologies</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Research Paper</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Communities</div>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="about-body">
+      <p data-reveal>I'm a <strong>second-year CS student</strong> who builds full-stack products with real-world impact — from AI healthcare platforms to QR-based emergency systems that could save lives.</p>
+      <p data-reveal>I automate my own developer habits: a <strong>Telegram bot</strong> that tracks my daily coding streak, a <strong>Chrome extension</strong> that auto-syncs competitive programming solutions to my portfolio, and a <strong>VS Code extension</strong> published on the Marketplace that analyses DSA code for Big-O complexity in real-time.</p>
+      <p data-reveal>I thrive at the intersection of <strong>product thinking and engineering execution.</strong> I don't just write code — I ship things people use.</p>
 
-<!-- SKILLS -->
-<section id="skills" class="fade-in">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Skills</h2>
-  </div>
-  <div class="skills-categories">
-    <div class="skill-cat">
-      <div class="skill-cat-label">Frontend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">React</span>
-      </div>
-    </div>
-    <div class="skill-cat">
-      <div class="skill-cat-label">Backend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Express.js</span>
-        <span class="skill-tag">MongoDB</span>
-        <span class="skill-tag">Postman API</span>
-      </div>
-    </div>
-    <div class="skill-cat">
-      <div class="skill-cat-label">Languages</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">C</span>
-        <span class="skill-tag">C++</span>
-      </div>
-    </div>
-    <div class="skill-cat">
-      <div class="skill-cat-label">Tools &amp; More</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">Telegram Bot API</span>
-        <span class="skill-tag">Chrome Extensions</span>
-        <span class="skill-tag">VS Code Extensions</span>
+      <div class="skills-block" data-reveal>
+        <div class="skill-group">
+          <div class="sg-label">Frontend</div>
+          <div class="sg-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Backend</div>
+          <div class="sg-tags">
+            <span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Languages</div>
+          <div class="sg-tags">
+            <span>Python</span><span>C++</span><span>C</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Tools</div>
+          <div class="sg-tags">
+            <span>Git</span><span>Postman</span><span>VS Code API</span><span>Chrome API</span><span>Telegram Bot API</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="fade-in">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Projects</h2>
-  </div>
+<section id="projects">
+  <div class="section-label" data-reveal><span>02</span> Projects</div>
   <div class="projects-grid" id="projects-grid"></div>
 
-  <!-- SIDE PROJECTS -->
-  <h3 class="sub-section-title">Side Builds &amp; Published Tools</h3>
-  <div class="side-projects-grid">
-    <div class="side-card">
-      <div class="side-card-icon">🤖</div>
-      <div>
-        <div class="side-card-title">Coding Streak Telegram Bot</div>
-        <p class="side-card-desc">Personal bot that monitors my daily coding activity, sends reminders when I skip, and maintains a visual streak log — keeping me accountable.</p>
-        <div class="mini-tags"><span class="mini-tag">Python</span><span class="mini-tag">Telegram Bot API</span><span class="mini-tag">Automation</span></div>
+  <!-- SIDE BUILDS -->
+  <div class="side-builds-header" data-reveal>
+    <span class="sb-label">Side Builds &amp; Published Tools</span>
+    <div class="sb-line"></div>
+  </div>
+  <div class="side-builds-grid">
+
+    <div class="side-card" data-reveal data-tilt>
+      <div class="sc-icon">🤖</div>
+      <h3>Coding Streak Bot</h3>
+      <p>Telegram bot monitoring daily coding activity, sending reminders when I skip, and maintaining a visual streak — keeping me accountable.</p>
+      <div class="sc-tags"><span>Python</span><span>Telegram API</span><span>Automation</span></div>
+    </div>
+
+    <div class="side-card" data-reveal data-tilt>
+      <div class="sc-icon">🧩</div>
+      <h3>Code Sync Extension</h3>
+      <p>Chrome extension that captures submitted code from competitive programming platforms and auto-syncs it to my portfolio — zero manual effort.</p>
+      <div class="sc-tags"><span>JavaScript</span><span>Chrome API</span><span>Productivity</span></div>
+    </div>
+
+    <div class="side-card side-card--hero" data-reveal data-tilt>
+      <div class="sc-published">Published on VS Code Marketplace</div>
+      <div class="sc-icon">⚡</div>
+      <h3>DSA Helper Pro — Complexity Analyzer</h3>
+      <p>VS Code extension that analyses DSA code in real-time and displays Big-O time &amp; space complexity — helping developers write efficient algorithms faster.</p>
+      <div class="sc-tags"><span>TypeScript</span><span>VS Code API</span><span>DSA</span><span>Dev Tools</span></div>
+      <div class="sc-links">
+        <a href="https://github.com/krishanumishra21/DSA-HELPER" target="_blank" class="sc-link" data-cursor="link">↗ GitHub</a>
+        <a href="https://marketplace.visualstudio.com/" target="_blank" class="sc-link sc-link--accent" data-cursor="link">⬡ Marketplace</a>
       </div>
     </div>
-    <div class="side-card">
-      <div class="side-card-icon">🧩</div>
-      <div>
-        <div class="side-card-title">Code Sync Chrome Extension</div>
-        <p class="side-card-desc">Browser extension that captures submitted code from competitive programming platforms and auto-syncs it to my portfolio — zero manual effort.</p>
-        <div class="mini-tags"><span class="mini-tag">JavaScript</span><span class="mini-tag">Chrome API</span><span class="mini-tag">Productivity</span></div>
-      </div>
-    </div>
-    <div class="side-card side-card--featured">
-      <div class="side-card-icon">⚡</div>
-      <div>
-        <div class="side-card-title">
-          DSA Helper Pro – Complexity Analyzer
-          <span class="published-pill">Published on Marketplace</span>
-        </div>
-        <p class="side-card-desc">VS Code extension that analyses DSA code in real-time and displays Big-O time &amp; space complexity — helping developers write efficient algorithms faster.</p>
-        <div class="mini-tags"><span class="mini-tag">TypeScript</span><span class="mini-tag">VS Code API</span><span class="mini-tag">DSA</span><span class="mini-tag">Developer Tools</span></div>
-        <div class="side-card-links">
-          <a href="https://github.com/krishanumishra21/DSA-HELPER" target="_blank" class="side-link">↗ GitHub</a>
-          <a href="https://marketplace.visualstudio.com/search?term=DSA+Helper+Pro&target=VSCode" target="_blank" class="side-link side-link--accent">⬡ VS Code Marketplace</a>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
 <!-- RESEARCH -->
-<section id="research" class="fade-in">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">Research</h2>
-  </div>
-  <div class="research-card">
-    <div class="research-badge">Published · 2025</div>
-    <h3 class="research-title">Aarogya AI — AI-Powered Digital Healthcare Platform</h3>
-    <p class="research-desc">Research paper on an intelligent healthcare system connecting patients, doctors, and hospitals into one unified platform. Covers architecture design, AI integration for diagnostics, and accessibility-first approach for rural healthcare delivery.</p>
-    <div class="research-meta">
-      <span class="research-tag">Healthcare AI</span>
-      <span class="research-tag">MERN Stack</span>
-      <span class="research-tag">System Design</span>
+<section id="research">
+  <div class="section-label" data-reveal><span>03</span> Research</div>
+  <div class="research-layout">
+    <div class="research-left" data-reveal>
+      <div class="research-year">2025</div>
+      <div class="research-venue">Published Paper</div>
     </div>
-    <a href="https://lnkd.in/gnCEMVvr" target="_blank" class="research-doi">
-      <span class="doi-label">DOI</span>
-      <span>View Published Paper ↗</span>
-    </a>
+    <div class="research-card" data-reveal data-tilt>
+      <div class="rc-badge">Peer Reviewed · 2025</div>
+      <h2 class="rc-title">Aarogya AI — AI-Powered Digital Healthcare Platform</h2>
+      <p class="rc-desc">Research paper on an intelligent healthcare system connecting patients, doctors, and hospitals into one unified platform. Covers architecture design, AI integration for diagnostics, and an accessibility-first approach for rural healthcare delivery.</p>
+      <div class="rc-tags">
+        <span>Healthcare AI</span>
+        <span>MERN Stack</span>
+        <span>System Design</span>
+        <span>Accessibility</span>
+      </div>
+      <a href="https://lnkd.in/gnCEMVvr" target="_blank" class="rc-doi" data-cursor="link">
+        <span class="doi-pill">DOI</span>
+        <span>View Published Paper</span>
+        <span class="doi-arrow">↗</span>
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- GITHUB -->
-<section id="github" class="fade-in">
-  <div class="section-header" style="justify-content:center">
-    <span class="section-num">05</span>
-    <h2 class="section-title">Contributions</h2>
-  </div>
-  <div class="github-wrap">
-    <p class="github-sub">Consistent hands-on development through real projects and daily learning.</p>
-    <a href="https://github.com/krishanumishra21" target="_blank">
+<section id="github">
+  <div class="section-label" data-reveal><span>04</span> Contributions</div>
+  <div class="github-wrap" data-reveal>
+    <p class="gh-sub">Consistent hands-on development through real projects and daily learning.</p>
+    <a href="https://github.com/krishanumishra21" target="_blank" data-cursor="link">
       <img src="https://ghchart.rshah.org/00e5c8/krishanumishra21" alt="GitHub Contributions" class="github-graph">
     </a>
-    <p class="gh-caption">Early-stage consistency · building real products · daily commits</p>
+    <p class="gh-caption">Daily commits · real products · open source</p>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade-in">
-  <div class="contact-inner">
-    <p class="contact-pre">Let's work together</p>
-    <h2 class="contact-heading">Open to Internship<br>Opportunities</h2>
-    <p class="contact-sub">I'm actively looking for summer internships where I can contribute to real products and grow as an engineer.</p>
-    <div class="contact-links">
-      <a href="mailto:mishrakrishanu57@gmail.com" class="btn-primary">mishrakrishanu57@gmail.com</a>
-      <a href="https://www.linkedin.com/in/krishanu-mishra-aa531b276/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+<section id="contact">
+  <div class="contact-inner" data-reveal>
+    <div class="contact-pre">Let's work together</div>
+    <h2 class="contact-heading">Open to Internship<br><em>Opportunities</em></h2>
+    <p class="contact-sub">Actively looking for roles where I can contribute to real products, learn fast, and grow as an engineer.</p>
+    <div class="contact-actions">
+      <a href="mailto:mishrakrishanu57@gmail.com" class="btn-primary large" data-cursor="link">
+        <span>mishrakrishanu57@gmail.com</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/krishanu-mishra-aa531b276/" target="_blank" class="btn-outline" data-cursor="link">LinkedIn ↗</a>
     </div>
     <div class="contact-alt">
-      <a href="tel:7488875996">+91 7488875996</a>
-      <a href="https://github.com/krishanumishra21" target="_blank">github.com/krishanumishra21</a>
+      <a href="tel:7488875996" data-cursor="link">+91 7488875996</a>
+      <a href="https://github.com/krishanumishra21" target="_blank" data-cursor="link">github.com/krishanumishra21</a>
     </div>
   </div>
 </section>
 
-<footer class="footer">
-  <span>Built by Krishanu Mishra</span>
-  <span class="footer-dot">·</span>
-  <span id="footer-year"></span>
+<footer>
+  <span>Krishanu Mishra</span>
+  <span class="fdot">·</span>
+  <span id="fyear"></span>
+  <span class="fdot">·</span>
+  <span>Built with intention ♥</span>
 </footer>
 
 <script src="script.js"></script>
