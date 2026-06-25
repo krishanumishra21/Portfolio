@@ -1,6 +1,4 @@
-/* ═══════════════════════════════════════════
-   LOADER
-═══════════════════════════════════════════ */
+
 const loader = document.getElementById('loader');
 const loaderText = document.getElementById('loader-text');
 let loadPct = 0;
@@ -233,13 +231,21 @@ document.querySelectorAll('.project-card, .research-card').forEach(card => {
 const projects = [
   {
     num: '01',
-    title: 'Emergency QR Medical Profile',
-    desc: 'QR-based system that stores and instantly surfaces critical medical information during emergencies — blood type, allergies, medications — fast enough to save lives.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-    url: 'https://github.com/krishanumishra21/emergency-medical-qr',
+    title: 'Royal Stay Hotel',
+    desc: 'A premium, fully responsive hospitality showcase and booking platform designed for luxury aesthetics and high-conversion client engagement.',
+    tags: ['HTML5', 'CSS3 (Vanilla)', 'JavaScript', 'Responsive Design'],
+    liveUrl: 'https://royalstayhotelsample.netlify.app',
+    badge: 'Commercial Showcase',
   },
   {
     num: '02',
+    title: 'Emergency QR Medical Profile',
+    desc: 'QR-based system that stores and instantly surfaces critical medical information during emergencies — blood type, allergies, medications — fast enough to save lives.',
+    tags: ['React'],
+    url: 'https://github.com/krishanumishra21/emergency-medical-qr',
+  },
+  {
+    num: '03',
     title: 'Aarogya AI',
     desc: 'Full-stack AI healthcare platform unifying patients, doctors, and hospitals. Featured in a published research paper for its system design and accessibility-first approach.',
     tags: ['MERN Stack', 'AI Integration', 'Healthcare'],
@@ -247,7 +253,7 @@ const projects = [
     badge: 'Published Research',
   },
   {
-    num: '03',
+    num: '04',
     title: 'Antarman AI',
     desc: 'अंतरमन — AI personality engine simulating dynamic personas with tunable traits: confidence, empathy, aggression, and humor. Characters evolve through conversation.',
     tags: ['MERN Stack', 'Prompt Engineering', 'AI'],
@@ -261,13 +267,22 @@ projects.forEach((p, i) => {
   card.className = 'project-card';
   card.setAttribute('data-reveal', '');
   card.setAttribute('data-tilt', '');
+
+  let linksHtml = '';
+  if (p.liveUrl) {
+    linksHtml += `<a href="${p.liveUrl}" target="_blank" class="pc-link pc-link--accent" data-cursor="link">⚡ Live Demo</a>`;
+  }
+  if (p.url) {
+    linksHtml += `<a href="${p.url}" target="_blank" class="pc-link" data-cursor="link">↗ GitHub</a>`;
+  }
+
   card.innerHTML = `
     ${p.badge ? `<div class="pc-badge">${p.badge}</div>` : ''}
     <div class="pc-num">PROJECT ${p.num}</div>
     <h3>${p.title}</h3>
     <div class="pc-tags">${p.tags.map(t => `<span class="pc-tag">${t}</span>`).join('')}</div>
     <p>${p.desc}</p>
-    <a href="${p.url}" target="_blank" class="pc-link" data-cursor="link">↗ View on GitHub</a>
+    <div class="pc-links-row">${linksHtml}</div>
   `;
   pg.appendChild(card);
 
