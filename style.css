@@ -671,6 +671,20 @@ section:not(#hero) {
 }
 .pc-link:hover { color: var(--c); }
 
+.pc-links-row {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+  align-items: center;
+}
+.pc-link--accent {
+  color: var(--c) !important;
+  font-weight: 600;
+}
+.pc-link--accent:hover {
+  color: #fff !important;
+}
+
 /* SIDE BUILDS */
 .side-builds-header {
   display: flex;
