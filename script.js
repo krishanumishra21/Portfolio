@@ -356,3 +356,47 @@ sections.forEach(s => activeObs.observe(s));
    CURSOR BLINK CODE WINDOW
 ═══════════════════════════════════════════ */
 // Already handled by CSS animation
+
+/* ═══════════════════════════════════════════
+   RESUME MODAL CONTROL
+═══════════════════════════════════════════ */
+const resumeModal = document.getElementById('resume-modal');
+const resumeModalClose = document.getElementById('resume-modal-close');
+const resumeLinks = [
+  document.getElementById('resume-link'),
+  document.getElementById('resume-link-mobile'),
+  document.getElementById('resume-btn-hero')
+];
+
+function openResume(e) {
+  if (e) e.preventDefault();
+  resumeModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeResume() {
+  resumeModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+resumeLinks.forEach(link => {
+  if (link) link.addEventListener('click', openResume);
+});
+
+if (resumeModalClose) {
+  resumeModalClose.addEventListener('click', closeResume);
+}
+
+if (resumeModal) {
+  resumeModal.addEventListener('click', (e) => {
+    if (e.target === resumeModal) {
+      closeResume();
+    }
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
+    closeResume();
+  }
+});
