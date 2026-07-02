@@ -259,6 +259,14 @@ const projects = [
     tags: ['MERN Stack', 'Prompt Engineering', 'AI'],
     url: 'https://github.com/krishanumishra21/Antarman-ai',
   },
+  {
+    num: '05',
+    title: 'AutoForge AI',
+    desc: 'A multi-agent AutoML platform enabling users to upload CSVs and automatically generate optimized, production-ready machine learning models in seconds with real-time logs.',
+    tags: ['React 19', 'FastAPI', 'Scikit-Learn', 'Pandas', 'Multi-Agent AI'],
+    url: 'https://github.com/krishanumishra21/Autoforge-ai',
+    badge: 'AutoML Platform',
+  },
 ];
 
 const pg = document.getElementById('projects-grid');

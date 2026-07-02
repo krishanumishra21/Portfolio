@@ -702,7 +702,7 @@ section:not(#hero) {
 .sb-line { flex: 1; height: 1px; background: var(--glass-border); }
 .side-builds-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 .side-card {
