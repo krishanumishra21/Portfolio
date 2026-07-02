@@ -32,6 +32,7 @@
     <a href="#about" class="nav-link" data-cursor="link"><span>01</span> About</a>
     <a href="#projects" class="nav-link" data-cursor="link"><span>02</span> Projects</a>
     <a href="#research" class="nav-link" data-cursor="link"><span>03</span> Insights</a>
+    <a href="#" class="nav-link" id="resume-link" data-cursor="link"><span>04</span> Resume</a>
     <a href="#contact" class="nav-link nav-cta" data-cursor="link">Hire Me ↗</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -44,6 +45,7 @@
   <a href="#about" class="mm-link">About</a>
   <a href="#projects" class="mm-link">Projects</a>
   <a href="#research" class="mm-link">Insights</a>
+  <a href="#" class="mm-link" id="resume-link-mobile">Resume</a>
   <a href="#contact" class="mm-link">Hire Me</a>
 </div>
 
@@ -73,6 +75,10 @@
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="https://github.com/krishanumishra21" target="_blank" class="btn-outline" data-cursor="link">GitHub</a>
+        <a href="#" class="btn-outline" id="resume-btn-hero" data-cursor="link">
+          <span>Resume</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </a>
       </div>
 
       <div class="hero-tags" data-reveal>
@@ -120,7 +126,7 @@
   <!-- STATS STRIP -->
   <div class="hero-stats" data-reveal>
     <div class="hstat">
-      <div class="hstat-num counter" data-target="5">0</div>
+      <div class="hstat-num counter" data-target="7">0</div>
       <div class="hstat-label">Projects Shipped</div>
     </div>
     <div class="hstat-div"></div>
@@ -163,13 +169,13 @@
         <div class="skill-group">
           <div class="sg-label">Backend</div>
           <div class="sg-tags">
-            <span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+            <span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>FastAPI</span>
           </div>
         </div>
         <div class="skill-group">
           <div class="sg-label">Languages</div>
           <div class="sg-tags">
-            <span>Python</span><span>C++</span><span>C</span>
+            <span>TypeScript</span><span>Python</span><span>C++</span><span>C</span>
           </div>
         </div>
         <div class="skill-group">
@@ -207,6 +213,18 @@
       <h3>Code Sync Extension</h3>
       <p>Chrome extension that captures submitted code from competitive programming platforms and auto-syncs it to my portfolio — zero manual effort.</p>
       <div class="sc-tags"><span>JavaScript</span><span>Chrome API</span><span>Productivity</span></div>
+    </div>
+
+    <div class="side-card side-card--hero" data-reveal data-tilt>
+      <div class="sc-published">Published on VS Code Marketplace</div>
+      <div class="sc-icon">🎨</div>
+      <h3>FavGen — Premium Favicon Generator</h3>
+      <p>VS Code extension to generate standard favicon packages from images, text, emojis, or local SVG icons with real-time browser &amp; iOS home screen previews.</p>
+      <div class="sc-tags"><span>TypeScript</span><span>VS Code API</span><span>Webpack</span><span>Dev Tools</span></div>
+      <div class="sc-links">
+        <a href="https://github.com/krishanumishra21/favgen" target="_blank" class="sc-link" data-cursor="link">↗ GitHub</a>
+        <a href="https://marketplace.visualstudio.com/items?itemName=krishanu-dev.favgen" target="_blank" class="sc-link sc-link--accent" data-cursor="link">⬡ Marketplace</a>
+      </div>
     </div>
 
     <div class="side-card side-card--hero" data-reveal data-tilt>
@@ -278,15 +296,26 @@
   </div>
 </section>
 
-<!-- GITHUB -->
+<!-- GITHUB & LEETCODE -->
 <section id="github">
-  <div class="section-label" data-reveal><span>04</span> Contributions</div>
+  <div class="section-label" data-reveal><span>05</span> Coding Activity</div>
   <div class="github-wrap" data-reveal>
     <p class="gh-sub">Consistent hands-on development through real projects and daily learning.</p>
-    <a href="https://github.com/krishanumishra21" target="_blank" data-cursor="link">
-      <img src="https://ghchart.rshah.org/00e5c8/krishanumishra21" alt="GitHub Contributions" class="github-graph">
-    </a>
-    <p class="gh-caption">Daily commits · real products · open source</p>
+    <div class="activity-grid">
+      <div class="graph-container">
+        <h4 class="graph-title">GitHub Contributions</h4>
+        <a href="https://github.com/krishanumishra21" target="_blank" data-cursor="link">
+          <img src="https://ghchart.rshah.org/00e5c8/krishanumishra21" alt="GitHub Contributions" class="github-graph">
+        </a>
+      </div>
+      <div class="graph-container">
+        <h4 class="graph-title">LeetCode Activity</h4>
+        <a href="https://leetcode.com/krishanu2109" target="_blank" data-cursor="link">
+          <img src="https://leetcard.jacoblin.cool/krishanu2109?ext=heatmap&theme=transparent&font=Inter" alt="LeetCode Contributions" class="leetcode-graph">
+        </a>
+      </div>
+    </div>
+    <p class="gh-caption">Daily commits · algorithmic problem solving · open source</p>
   </div>
 </section>
 
@@ -317,6 +346,25 @@
   <span class="fdot">·</span>
   <span>Built with intention ♥</span>
 </footer>
+
+<!-- RESUME MODAL -->
+<div class="resume-modal-overlay" id="resume-modal">
+  <div class="resume-modal-content">
+    <div class="resume-modal-header">
+      <h3>Resume — Krishanu Mishra</h3>
+      <div class="resume-modal-actions">
+        <a href="resume.pdf" download="Krishanu_Mishra_Resume.pdf" class="btn-primary" data-cursor="link">
+          <span>Download PDF</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </a>
+        <button class="resume-modal-close" id="resume-modal-close" aria-label="Close modal">✕</button>
+      </div>
+    </div>
+    <div class="resume-modal-body">
+      <iframe src="resume.pdf" class="resume-iframe"></iframe>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
