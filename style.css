@@ -702,7 +702,7 @@ section:not(#hero) {
 .sb-line { flex: 1; height: 1px; background: var(--glass-border); }
 .side-builds-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 .side-card {
@@ -980,6 +980,123 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ── RESUME MODAL ── */
+.resume-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 6, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+}
+.resume-modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.resume-modal-content {
+  background: var(--bg2);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 229, 200, 0.05);
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.resume-modal-overlay.active .resume-modal-content {
+  transform: scale(1) translateY(0);
+}
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+}
+.resume-modal-header h3 {
+  font-family: var(--head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.resume-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.resume-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 6px;
+  line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.resume-modal-close:hover {
+  color: var(--c);
+  transform: rotate(90deg);
+}
+.resume-modal-body {
+  flex: 1;
+  background: #111;
+  position: relative;
+}
+.resume-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── CODING ACTIVITY ── */
+.activity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.graph-title {
+  font-family: var(--mono);
+  font-size: .8rem;
+  color: var(--c);
+  margin-bottom: 16px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.leetcode-graph {
+  width: 100%;
+  max-width: 920px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  transition: border-color .3s;
+  padding: 24px;
+  background: rgba(6, 10, 9, 0.4);
+}
+.leetcode-graph:hover {
+  border-color: rgba(0, 229, 200, 0.3);
+}
 
 /* ── MOBILE ── */
 @media (max-width: 1024px) {
