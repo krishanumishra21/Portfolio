@@ -331,8 +331,167 @@ setTimeout(() => {
 }, 100);
 
 /* ═══════════════════════════════════════════
+   CERTIFICATIONS DATA & RENDERING
+   ═══════════════════════════════════════════ */
+const certifications = [
+  {
+    title: "Certificate of Merit",
+    issuer: "CGC University Mohali",
+    date: "Feb 2026",
+    desc: "Awarded for demonstrating outstanding academic excellence, exemplary dedication, and remarkable performance during the Vistos event.",
+    tags: ["Academic Excellence", "Leadership", "Performance"],
+    file: "certificates/cgc-merit-certificate.jpg",
+    fileType: "image",
+    verifyUrl: ""
+  },
+  {
+    title: "Java Programming Fundamentals",
+    issuer: "Infosys Springboard",
+    date: "Apr 2026",
+    desc: "Comprehensive certification covering Java fundamentals, object-oriented programming concepts, and core language structures.",
+    tags: ["Java", "OOPs", "Programming Fundamentals"],
+    file: "certificates/infosys-java.pdf",
+    fileType: "pdf",
+    verifyUrl: "https://verify.onwingspan.com"
+  },
+  {
+    title: "Programming Fundamentals using Python - Part 1",
+    issuer: "Infosys Springboard",
+    date: "Oct 2025",
+    desc: "Certification verifying strong foundational knowledge in Python, including algorithms, control structures, and basic data structures.",
+    tags: ["Python", "Algorithms", "Data Structures"],
+    file: "certificates/infosys-python.pdf",
+    fileType: "pdf",
+    verifyUrl: "https://verify.onwingspan.com"
+  },
+  {
+    title: "CRUD Operations in MongoDB",
+    issuer: "MongoDB",
+    date: "Dec 2025",
+    desc: "Hands-on certification from MongoDB verifying skills in creating, reading, updating, and deleting data within MongoDB collections.",
+    tags: ["MongoDB", "NoSQL", "CRUD Operations", "Database"],
+    file: "certificates/mongodb-crud.pdf",
+    fileType: "pdf",
+    verifyUrl: "https://www.credly.com/badges/6238719b-2b17-490d-a473-7ead2c06e02c"
+  },
+  {
+    title: "MongoDB Overview: Core Concepts and Architecture",
+    issuer: "MongoDB",
+    date: "Dec 2025",
+    desc: "Certification covering MongoDB core architecture, data modeling, indexing, and fundamental NoSQL database design principles.",
+    tags: ["MongoDB", "Database Architecture", "NoSQL", "Data Modeling"],
+    file: "certificates/mongodb-overview.pdf",
+    fileType: "pdf",
+    verifyUrl: "https://www.credly.com/badges/112d59cd-43e0-4ac7-bd46-67aad5a1ace4"
+  }
+];
+
+const cgGrid = document.getElementById('certificates-grid');
+const certModal = document.getElementById('cert-modal');
+const certModalTitle = document.getElementById('cert-modal-title');
+const certModalDownload = document.getElementById('cert-modal-download');
+const certModalBody = document.getElementById('cert-modal-body');
+const certModalClose = document.getElementById('cert-modal-close');
+
+certifications.forEach((c, i) => {
+  const card = document.createElement('div');
+  card.className = 'certificate-card';
+  card.setAttribute('data-reveal', '');
+  card.setAttribute('data-tilt', '');
+
+  let linksHtml = `<a href="#" class="cert-link cert-link--accent view-cert-btn" data-cursor="link">👁 View Certificate</a>`;
+  if (c.verifyUrl) {
+    linksHtml += `<a href="${c.verifyUrl}" target="_blank" class="cert-link" data-cursor="link">↗ Verify Credential</a>`;
+  }
+
+  card.innerHTML = `
+    <div class="cert-issuer-row">
+      <div class="cert-issuer">${c.issuer}</div>
+      <div class="cert-date">${c.date}</div>
+    </div>
+    <h3>${c.title}</h3>
+    <div class="cert-tags">${c.tags.map(t => `<span class="cert-tag">${t}</span>`).join('')}</div>
+    <p>${c.desc}</p>
+    <div class="cert-links-row">${linksHtml}</div>
+  `;
+  
+  // View certificate event
+  const viewBtn = card.querySelector('.view-cert-btn');
+  viewBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openCertificate(c);
+  });
+
+  cgGrid.appendChild(card);
+
+  // 3D tilt
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    const cx = r.width / 2, cy = r.height / 2;
+    card.style.transform = `perspective(800px) rotateX(${-((y-cy)/cy)*5}deg) rotateY(${((x-cx)/cx)*5}deg) translateZ(4px)`;
+    card.style.setProperty('--mx', x + 'px');
+    card.style.setProperty('--my', y + 'px');
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+
+  // Cursor hover hooks
+  card.setAttribute('data-cursor', 'link');
+  card.addEventListener('mouseenter', () => {
+    cursor.classList.add('hover');
+    follower.classList.add('hover');
+  });
+  card.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+    follower.classList.remove('hover');
+  });
+
+  card.style.transitionDelay = `${i * 0.08}s`;
+});
+
+function openCertificate(cert) {
+  certModalTitle.textContent = cert.title + " — " + cert.issuer;
+  certModalDownload.setAttribute('href', cert.file);
+  certModalDownload.setAttribute('download', cert.file.split('/').pop());
+  
+  if (cert.fileType === 'pdf') {
+    certModalBody.innerHTML = `<iframe src="${cert.file}" class="cert-iframe"></iframe>`;
+  } else {
+    certModalBody.innerHTML = `<img src="${cert.file}" alt="${cert.title}" class="cert-img-view" />`;
+  }
+  
+  certModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCertificate() {
+  certModal.classList.remove('active');
+  document.body.style.overflow = '';
+  // Clear modal body to stop any loading pdf/iframe
+  setTimeout(() => {
+    certModalBody.innerHTML = '';
+  }, 400);
+}
+
+if (certModalClose) {
+  certModalClose.addEventListener('click', closeCertificate);
+}
+if (certModal) {
+  certModal.addEventListener('click', (e) => {
+    if (e.target === certModal) closeCertificate();
+  });
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && certModal.classList.contains('active')) {
+    closeCertificate();
+  }
+});
+
+/* ═══════════════════════════════════════════
    FOOTER YEAR
-═══════════════════════════════════════════ */
+   ═══════════════════════════════════════════ */
 document.getElementById('fyear').textContent = new Date().getFullYear();
 
 /* ═══════════════════════════════════════════

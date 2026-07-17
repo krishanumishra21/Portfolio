@@ -32,7 +32,8 @@
     <a href="#about" class="nav-link" data-cursor="link"><span>01</span> About</a>
     <a href="#projects" class="nav-link" data-cursor="link"><span>02</span> Projects</a>
     <a href="#research" class="nav-link" data-cursor="link"><span>03</span> Insights</a>
-    <a href="#" class="nav-link" id="resume-link" data-cursor="link"><span>04</span> Resume</a>
+    <a href="#certifications" class="nav-link" data-cursor="link"><span>04</span> Certificates</a>
+    <a href="#" class="nav-link" id="resume-link" data-cursor="link"><span>05</span> Resume</a>
     <a href="#contact" class="nav-link nav-cta" data-cursor="link">Hire Me ↗</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -45,6 +46,7 @@
   <a href="#about" class="mm-link">About</a>
   <a href="#projects" class="mm-link">Projects</a>
   <a href="#research" class="mm-link">Insights</a>
+  <a href="#certifications" class="mm-link">Certificates</a>
   <a href="#" class="mm-link" id="resume-link-mobile">Resume</a>
   <a href="#contact" class="mm-link">Hire Me</a>
 </div>
@@ -296,6 +298,12 @@
   </div>
 </section>
 
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label" data-reveal><span>04</span> Certifications</div>
+  <div class="certificates-grid" id="certificates-grid"></div>
+</section>
+
 <!-- GITHUB & LEETCODE -->
 <section id="github">
   <div class="section-label" data-reveal><span>05</span> Coding Activity</div>
@@ -362,6 +370,25 @@
     </div>
     <div class="resume-modal-body">
       <iframe src="resume.pdf" class="resume-iframe"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATE MODAL -->
+<div class="cert-modal-overlay" id="cert-modal">
+  <div class="cert-modal-content">
+    <div class="cert-modal-header">
+      <h3 id="cert-modal-title">Certificate</h3>
+      <div class="cert-modal-actions">
+        <a href="#" download id="cert-modal-download" class="btn-primary" data-cursor="link">
+          <span>Download File</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </a>
+        <button class="cert-modal-close" id="cert-modal-close" aria-label="Close modal">✕</button>
+      </div>
+    </div>
+    <div class="cert-modal-body" id="cert-modal-body">
+      <!-- Will be populated dynamically with iframe or image -->
     </div>
   </div>
 </div>
