@@ -239,13 +239,6 @@ const projects = [
   },
   {
     num: '02',
-    title: 'Emergency QR Medical Profile',
-    desc: 'QR-based system that stores and instantly surfaces critical medical information during emergencies — blood type, allergies, medications — fast enough to save lives.',
-    tags: ['React'],
-    url: 'https://github.com/krishanumishra21/emergency-medical-qr',
-  },
-  {
-    num: '03',
     title: 'Aarogya AI',
     desc: 'Full-stack AI healthcare platform unifying patients, doctors, and hospitals. Featured in a published research paper for its system design and accessibility-first approach.',
     tags: ['MERN Stack', 'AI Integration', 'Healthcare'],
@@ -253,14 +246,14 @@ const projects = [
     badge: 'Published Research',
   },
   {
-    num: '04',
+    num: '03',
     title: 'Antarman AI',
     desc: 'अंतरमन — AI personality engine simulating dynamic personas with tunable traits: confidence, empathy, aggression, and humor. Characters evolve through conversation.',
     tags: ['MERN Stack', 'Prompt Engineering', 'AI'],
     url: 'https://github.com/krishanumishra21/Antarman-ai',
   },
   {
-    num: '05',
+    num: '04',
     title: 'AutoForge AI',
     desc: 'A multi-agent AutoML platform enabling users to upload CSVs and automatically generate optimized, production-ready machine learning models in seconds with real-time logs.',
     tags: ['React 19', 'FastAPI', 'Scikit-Learn', 'Pandas', 'Multi-Agent AI'],
